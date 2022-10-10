@@ -1,5 +1,6 @@
 const themeButton = document.querySelector('#themeButton');
 const buttonPlay = document.querySelector('#buttonPlay');
+const buttonStop = document.querySelector('#buttonStop');
 const buttonAddFiveMinutes = document.querySelector('#buttonAddFiveMinutes');
 const buttonRemoveFiveMinutes = document.querySelector('#buttonRemoveFiveMinutes');
 
@@ -11,6 +12,9 @@ const body = document.querySelector('body');
 
 let minutes = Number(displayMinutes.textContent);
 let seconds = Number(displaySeconds.textContent);
+let minuteRecord = minutes;
+
+let timer;
 
 function updateMinutesDisplay() {
     displayMinutes.textContent = String(minutes).padStart(2, '0')
@@ -18,6 +22,20 @@ function updateMinutesDisplay() {
 
 function updateSecondsDisplay() {
     displaySeconds.textContent = String(seconds).padStart(2, '0')
+}
+
+function resetMinuteDisplay() {
+    displayMinutes.textContent = String(minuteRecord).padStart(2, '0')
+    minutes = Number(displayMinutes.textContent)
+}
+
+function updateMinuteRecord() {
+    minuteRecord = Number(displayMinutes.textContent)
+}
+
+function resetSecondsDisplay() {
+    displaySeconds.textContent = String(0).padStart(2, '0')
+    seconds = Number(displaySeconds.textContent)
 }
 
 function addFiveMinutes() {
@@ -28,6 +46,7 @@ function addFiveMinutes() {
     } else {
         minutes += 5
         updateMinutesDisplay()
+        updateMinuteRecord()
     }
 }
 
@@ -39,9 +58,21 @@ function removeFiveMinutes() {
     } else {
         minutes -= 5
         updateMinutesDisplay()
+        updateMinuteRecord()
     }
 }
 
+function playCountdown() {
+    toggleSetTimer()
+    countdown()
+}
+
+function stopCountdown() {
+    clearTimeout(timer)
+    resetSecondsDisplay()
+    resetMinuteDisplay()
+    toggleSetTimer()
+}
 
 function toggleTheme() {
     body.classList.toggle('lightMode')
@@ -50,7 +81,7 @@ function toggleTheme() {
 
 function countdown() {
 
-    let timer = setTimeout(() => {
+    timer = setTimeout(() => {
 
         const minuteDone = seconds === 0;
         const timerDone = minutes === 0 && seconds === 0;
@@ -63,7 +94,10 @@ function countdown() {
         seconds -= 1
 
         if(timerDone) {
-
+            resetSecondsDisplay()
+            resetMinuteDisplay()
+            toggleSetTimer()
+            return
         }
 
         updateSecondsDisplay()
@@ -75,10 +109,16 @@ function countdown() {
 
 }
 
-themeButton.addEventListener('click', toggleTheme)
-buttonPlay.addEventListener('click',countdown)
-buttonAddFiveMinutes.addEventListener('click', addFiveMinutes)
-buttonRemoveFiveMinutes.addEventListener('click', removeFiveMinutes)
+function toggleSetTimer() {
+    buttonAddFiveMinutes.toggleAttribute('disabled')
+    buttonRemoveFiveMinutes.toggleAttribute('disabled')
+}
+
+themeButton.addEventListener('click', toggleTheme);
+buttonPlay.addEventListener('click',playCountdown);
+buttonStop.addEventListener('click', stopCountdown);
+buttonAddFiveMinutes.addEventListener('click', addFiveMinutes);
+buttonRemoveFiveMinutes.addEventListener('click', removeFiveMinutes);
 
 
 
