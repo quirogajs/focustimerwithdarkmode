@@ -1,0 +1,67 @@
+/* LIGHT MODE */
+
+body.lightMode {
+    color: #323238;
+    background-color: #FFFFFF;
+}
+
+body.lightMode .soundIcon,
+body.lightMode .displayIcon {
+    filter: invert(14%) sepia(11%) saturate(539%) hue-rotate(201deg) brightness(95%) contrast(83%);
+}
+
+body.lightMode #lightIcon{
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+}
+
+body.lightMode .soundButton {
+    background-color: #E1E1E6;
+}
+
+body.lightMode input[type=range] {
+    background: #323238;
+}
+
+body.lightMode input[type=range]::-webkit-slider-thumb {
+    background: #323238;
+}
+
+body.lightMode input[type=range]::-ms-thumb {
+    background: #323238;
+}
+
+/* DARK MODE */
+
+body.darkMode {
+    background-color: #121214;
+    color: #C4C4CC;
+}
+
+body.darkMode #darkIcon {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+}
+
+body.darkMode .soundButton {
+    background-color: #29292E;
+}
+
+body.darkMode input[type=range] {
+    background: #C4C4CC;
+}
+
+body.darkMode input[type=range]::-webkit-slider-thumb {
+    background: #C4C4CC;
+}
+
+body.darkMode input[type=range]::-ms-thumb {
+    background: #C4C4CC;
+}
+
+body.darkMode .soundIcon,
+body.darkMode .displayIcon {
+    filter: invert(75%) sepia(5%) saturate(243%) hue-rotate(202deg) brightness(107%) contrast(87%);
+}

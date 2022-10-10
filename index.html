@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="./script.js" type="module" defer></script>
+
+    <title>Focus Timer 2.0</title>
+</head>
+<body class="lightMode">
+    
+    <div id="themeButton">
+        <img src="./assets/dark-mode.svg" id="darkIcon">
+        <img src="./assets/light-mode.svg" id="lightIcon">
+    </div>
+
+    <div id="contentWrapper">
+        
+        <div id="displayWrapper">
+
+            <div id="displayTimer">
+                <span id="displayMinutes">25</span><span>:</span><span id="displaySeconds">00</span>
+            </div>
+
+            <div id="displayControlsWrapper">
+
+                <button id="buttonPlay" class="displayButton">
+
+                    <img src="./assets/play.svg" class="displayIcon">                        
+
+                </button>
+                
+                
+                <button id="buttonStop" class="displayButton">
+
+                    <img src="./assets/stop.svg" class="displayIcon"> 
+                        
+                </button>
+                
+                
+                <button id="buttonAddFiveMinutes" class="displayButton">
+
+                    <img src="./assets/addFive.svg" class="displayIcon"> 
+                        
+                </button>
+                
+                
+                <button id="buttonRemoveFiveMinutes" class="displayButton">
+
+                    <img src="./assets/removeFive.svg" class="displayIcon">                         
+
+                </button>            
+            
+            </div>
+
+        </div>
+        
+        <div id="soundsWrapper">
+
+            <div class="soundButton">
+
+                <button id="buttonForestSound">
+
+                   <img src="./assets/forest.svg" class="soundIcon">
+
+                </button>
+                
+                <input type="range" id="forestVolume" min="0" max="1" step="0.1" value="0.5">
+
+            </div>
+            
+            <div class="soundButton">
+                
+                <button id="buttonRainSound">
+
+                    <img src="./assets/rain.svg" class="soundIcon">
+
+                </button>
+
+                <input type="range" id="rainVolume" min="0" max="1" step="0.1" value="0.5">
+                
+            </div>
+            
+            <div class="soundButton">
+
+            
+                <button id="buttonShopSound">
+
+                    <img src="./assets/shop.svg" class="soundIcon">
+
+                </button>
+            
+                    
+                <input type="range" id="shopVolume" min="0" max="1" step="0.1" value="0.5">
+
+            </div>
+            
+            <div class="soundButton">
+
+                <button id="buttonFireSound">
+
+                    <img src="./assets/fire.svg" class="soundIcon">
+
+                </button>
+
+
+                <input type="range" id="fireVolume" min="0" max="1" step="0.1" value="0.5">
+
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+</html>
